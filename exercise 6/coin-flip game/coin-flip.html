@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Ultimate Coin Flip Game</title>
+</head>
+<body>
+  <script>
+    let randomNumber = Math.random();
+    let results = '';
+    let guess;
+    guess = prompt('Heads or Tails mate?')
+
+    if (randomNumber <= 0.5){
+      results = 'Heads'
+    }else{
+      results = 'Tails'
+    }
+
+    // if(guess === results){
+    //   console.log('You guessed right mate, congratulations')
+    // }else{
+    //   console.log('You guessed wrong bruv, better luck next time')
+    // }
+
+    guess === results ? console.log(' Congratulations mate,you guessed right') : console.log('You guessed wrong bruv, better luck next time')
+
+  </script>
+</body>
+</html>
