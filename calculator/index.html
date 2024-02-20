@@ -4,49 +4,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>calculator</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <p>
-    <button onclick="
-    updatedCalulation('9')">9</button>
-    <button onclick="
-    updatedCalulation('8')">8</button>
-    <button onclick="
-    updatedCalulation('7')">7</button>
-    <button onclick="
-    updatedCalulation('*')">x</button>
-  </p>
-  <p>
-    <button onclick="
-    updatedCalulation('6') ">6</button>
-    <button onclick="
-    updatedCalulation('5')">5</button>
-    <button onclick="
-    updatedCalulation('4')">4</button>
-    <button onclick="
-    updatedCalulation('-')">-</button>
-  </p>
-  <p>
-    <button onclick="
-    updatedCalulation('3')">3</button>
-    <button onclick="
-    updatedCalulation('2')">2</button>
-    <button onclick="
-    updatedCalulation('1')">1</button>
-    <button onclick="
-    updatedCalulation('+')">+</button>
-  </p>
-  <p>
-    <button onclick="
-    updatedCalulation('0') ">0</button>
-    <button onclick="
-    updatedCalulation('.')">.</button>
-    <button onclick="
-    updatedCalulation('='); 
+  <section class="calculator">
+    <p class="calculation-space"></p>
+    <p>
+      <button class="calculator-btn ash-btn" onclick="
+      updatedCalulation('C')">C</button>
+      <button class="calculator-btn ash-btn" onclick="
+      updatedCalulation('M')">M</button>
+      <button class="calculator-btn ash-btn" onclick="
+      updatedCalulation('%')">%</button>
+      <button class="calculator-btn orange-btn"onclick="
+      updatedCalulation('/')">/</button>
+    </p>
+    <p>
+      <button class="calculator-btn gray-btn" onclick="
+      updatedCalulation('9')">9</button>
+      <button class="calculator-btn gray-btn" onclick="
+      updatedCalulation('8')">8</button>
+      <button class="calculator-btn gray-btn" onclick="
+      updatedCalulation('7')">7</button>
+      <button class="calculator-btn orange-btn" onclick="
+      updatedCalulation('*')">x</button>
+    </p>
+    <p>
+      <button class="calculator-btn gray-btn" onclick="
+      updatedCalulation('6') ">6</button>
+      <button class="calculator-btn gray-btn" onclick="
+      updatedCalulation('5')">5</button>
+      <button class="calculator-btn gray-btn" onclick="
+      updatedCalulation('4')">4</button>
+      <button class="calculator-btn orange-btn" onclick="
+      updatedCalulation('-')">-</button>
+    </p>
+    <p>
+      <button class="calculator-btn gray-btn" onclick="
+      updatedCalulation('3')">3</button>
+      <button class="calculator-btn gray-btn" onclick="
+      updatedCalulation('2')">2</button>
+      <button class="calculator-btn gray-btn" onclick="
+      updatedCalulation('1')">1</button>
+      <button class="calculator-btn orange-btn" onclick="
+      updatedCalulation('+')">+</button>
+    </p>
+    <p>
+      <button class="calculator-btn gray-btn zero-btn" onclick="
+      updatedCalulation('0') ">0</button>
+      <button class="calculator-btn gray-btn" onclick="
+      updatedCalulation('.')">.</button>
+      <button class="calculator-btn orange-btn" onclick="
+      updatedCalulation('='); 
 
-    ">=</button>
-  </p>
-  
+      ">=</button>
+    </p>
+  </section>
 
   <script>
     calculation = '';
@@ -54,10 +67,15 @@
     function updatedCalulation(value){
       if (value === '=' ){
         calculation = eval(calculation);
-      }else{
+      }else if (value === 'C'){
+        calculation = '';
+      }else if (value === '%'){
+        calculation *= 0.01 ;
+      } else{
         calculation += value;
       }
       console.log(calculation);
+      document.querySelector('.calculation-space').innerHTML = calculation
     }
   </script>
 </body>
