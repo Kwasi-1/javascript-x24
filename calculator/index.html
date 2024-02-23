@@ -62,7 +62,7 @@
   </section>
 
   <script>
-    calculation = '';
+    let calculation = JSON.parse(localStorage.getItem('calculation')) || '';
 
     function updatedCalulation(value){
       if (value === '=' ){
@@ -74,6 +74,8 @@
       } else{
         calculation += value;
       }
+      localStorage.setItem('calculation', JSON.stringify(calculation));
+
       console.log(calculation);
       document.querySelector('.calculation-space').innerHTML = calculation
     }

@@ -6,26 +6,64 @@
   <title>The Ultimate Coin Flip Game</title>
 </head>
 <body>
-  <script>
-    let randomNumber = Math.random();
-    let results = '';
-    let guess;
-    guess = prompt('Heads or Tails mate?')
+  <h3>Heads or Tails</h3>
+  <button onclick="playGame('Heads')" class="">Heads</button>
+  <button onclick="playGame('Tails')" class="">Tails</button>
+  <button onclick="endGame('end')" class="">End</button>
+  <button onclick="endGame('start over')" class="">Start Over</button>
+  <!-- <button onclick = "
+  " class></button> -->
 
-    if (randomNumber <= 0.5){
-      results = 'Heads'
-    }else{
-      results = 'Tails'
+  <script>
+    let results = '';
+    let score = JSON.parse(localStorage.getItem('score')) || {
+      wins: 0,
+      losses: 0
+    }
+    
+    function playGame(guess){
+      let randomNumber = Math.random();
+
+      if (randomNumber <= 0.5){
+        results = 'Heads'
+      }else{
+        results = 'Tails'
+      }
+
+      if (guess === results){
+        // console.log(' Congratulations mate,you guessed right');
+        score.wins += 1;
+      }else{ 
+        // console.log('You guessed wrong bruv, better luck next time');
+        score.losses +=1;
+      }
+
+      localStorage.setItem('score', JSON.stringify(score))
+
+      console.log(score)
     }
 
-    // if(guess === results){
-    //   console.log('You guessed right mate, congratulations')
-    // }else{
-    //   console.log('You guessed wrong bruv, better luck next time')
-    // }
+    function endGame(move){
+      
+      if(move === 'start over'){
+        localStorage.removeItem('score')
+      }
+      else if(move === 'end'){
+        if(score.wins > score.losses) {
+          alert(`Congratulation you win. You guess ${score.wins} right and ${score.losses} wrong`)
+        }else{
+          alert(`Sorry you lose. You guess ${score.wins} right and ${score.losses} wrong`)
+        }
+        localStorage.removeItem('score');
+      } 
+      score ={
+        wins: 0,
+        losses: 0
+      }
+      console.log(score)
+    }
 
-    guess === results ? console.log(' Congratulations mate,you guessed right') : console.log('You guessed wrong bruv, better luck next time')
-
+    
   </script>
 </body>
 </html>
