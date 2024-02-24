@@ -14,7 +14,7 @@
   playGame('Paper')">Paper</button>
   <button onclick= "
   playGame('Scissors')">Scissors</button>
-  <button onclick="resetGame() ">Reset</button>
+  <button onclick="resetGame() ">Reset Game</button>
 
   <script>
     let score = JSON.parse(localStorage.getItem('score')) || {
@@ -27,7 +27,7 @@
       computerMove = pickComputerMove();
       let results = '';
 
-      if(playerMove === 'Rock'){
+      if(playerMove === 'Rock'){ 
         if(computerMove === 'Rock'){
           results = 'Tie';
         }else if(computerMove === 'Paper') {
