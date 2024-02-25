@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+</head>
+<body>
+  <button>9a</button>
+  <button class="js-button">9b</button>
+
+  <button class="js-heads-button" onclick="playGame('heads')">heads</button>
+  <button class="js-tails-button" onclick="playGame('tails')">tails</button>
+  <p class="js-move-p"></p>
+
+  <script>
+    let move;
+    console.log(document.querySelector('button'));
+
+    document.querySelector('.js-button').innerHTML = '9b done';
+
+    const playerMove = document.querySelector('.js-move-p');
+
+    function playGame(move){
+      if(move === 'heads'){
+        return playerMove.innerHTML = `You chose: ${move}`;
+      }
+      if(move === 'tails'){
+        return playerMove.innerHTML = `You chose: ${move}`
+      }
+    }
+
+    
+  </script>
+</body>
+</html>
