@@ -14,6 +14,11 @@
   playGame('Paper')">Paper</button>
   <button onclick= "
   playGame('Scissors')">Scissors</button>
+
+  <p class="js-results"></p>
+  <p class="js-moves"></p>
+  <p class="js-score" ></p>
+
   <button onclick="resetGame() ">Reset Game</button>
 
   <script>
@@ -21,7 +26,7 @@
       wins: 0,
       losses: 0,
       ties: 0,
-    };
+    };  
     
     function playGame(playerMove){
       computerMove = pickComputerMove();
@@ -62,9 +67,18 @@
       } 
 
       localStorage.setItem('score', JSON.stringify(score));
+
+      const yourResults = document.querySelector('.js-results');
+      yourResults.innerHTML = results;
+
+      const gameMoves = document.querySelector('.js-moves');
+      gameMoves.innerHTML =`You: ${playerMove} - Computer: ${computerMove}`;
+
+      displayScore();
       
-      alert(`${results}. You picked ${playerMove}. Computer picked ${computerMove}
-Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`)
+      // alert(`${results}. You picked ${playerMove}. Computer picked ${computerMove}
+// Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
+
     }
 
     function pickComputerMove(){
@@ -81,6 +95,23 @@ Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`)
       }
       return computerMove;
     }
+    let pla
+    function playerResults(){
+      // const yourResults = document.querySelector('.js-results');
+
+      // yourResults.innerHTML =`${results}.
+      //  You: ${playerMove} - Computer: ${computerMove}`;
+
+      //  console.log(yourResults.innerHTML);
+    }
+    
+
+    function displayScore(){
+      const yourScore = document.querySelector('.js-score');
+
+      yourScore.innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+    }
+    displayScore();
 
     function resetGame(){
       score={
@@ -89,6 +120,8 @@ Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`)
         ties: 0
       }
       localStorage.removeItem('score')
+
+      displayScore();
     }
   </script>
 </body>
