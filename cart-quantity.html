@@ -32,10 +32,9 @@
 
     <button onclick="
     updateCartQuantity(cartQuantity ,'remove')
-    // cartQuantity = 0 ;
-    // console.log('Cart was reset')
-    // console.log(`cart quantity: ${cartQuantity}`)">Cart Reset</button>
+    ">Cart Reset</button>
   </p>
+  <p class="js-p"></p>
 
   <script>
     let cartQuantity = 0;
@@ -49,14 +48,15 @@
         }
       }else if (operation === 'add'){
         if (cartQuantity + value > 10){
-          console.log('The Cart is full!! Max capacity[10]')
+          alert('The Cart is full!! Max capacity[10]')
         }else{
           cartQuantity += value;
         };
       }
        
-      
-      console.log(`cart quantity: ${cartQuantity}`)
+      const inputElement = document.querySelector('.js-p');
+
+      inputElement.innerHTML =`cart quantity: ${cartQuantity}`;
     }
 
   </script>
