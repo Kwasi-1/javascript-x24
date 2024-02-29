@@ -9,6 +9,21 @@
     section {
       padding-bottom: 50px;
     }
+    .order-cost{
+      padding: 11px 15px;
+      border-radius: 2px;
+      border: 1px solid gray;
+    }
+    .calculate-btn{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      background-color: rgb(31, 148, 31);
+      color: white;
+      border: none;
+      padding: 12px 15px;
+      margin-right: 12px;
+      margin: 5px;
+    }
   </style>
 </head>
 <body>
@@ -26,9 +41,9 @@
     <p>Amazon Shipping Calculator</p>
     <p>Orders under $40 = +$10 shipping</p>
     <p>Orders over $40 = FREE shipping</p>
-    <input type="text" placeholder="cost" class="js-cost" onkeydown="pressEnter(event)">
-    <button onclick="calculateTotal()">Calculate</button>
-    <p class="js-display-total"></p>
+    <input type="text" placeholder="Cost of Order" class="js-cost order-cost" onkeydown="pressEnter(event)">
+    <button onclick="calculateTotal()"  class="calculate-btn">Calculate</button>
+    <p class="js-display-total display"></p>
   </section>
 
 
@@ -42,15 +57,16 @@
         buttonElement.innerHTML = 'Subscribe';
       }
     }
-    // const inputElement = document.querySelector('.js-cost');
-
-    // const cost = inputElement.value;
 
     function calculateTotal(){
       const inputElement = document.querySelector('.js-cost');
 
       let cost = Number(inputElement.value);
 
+      if (cost <= 0){
+        document.querySelector('.js-display-total').innerHTML = `Error: cost cannot be less than $0`;
+        return;
+      }
       if(cost < 40){
         cost = cost + 10;  
       }
