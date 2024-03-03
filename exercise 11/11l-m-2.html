@@ -8,21 +8,23 @@
 <body>
   <script>
     function minMax(nums){
-      const result ={
+      let result ={
         min : null,
         max : null,
       }
 
       for(i = 0; i < nums.length; i++){
-        const value = nums[i];
+        let minValue = result.min;
 
-        if (result.min === null || value < result.min){
-          result.min = value;
+        if (result.min === null || nums[i] < minValue){
+          minValue = nums[i];
+          result.min = minValue;
         }
 
-        if (result.max === null || value > result.max){
-          // maxValue = nums[i];
-          result.max = value;
+        let maxValue = result.min;
+      if (result.max === null || nums[i] > maxValue){
+          maxValue = nums[i];
+          result.max = maxValue;
         }
       }
       console.log(result)

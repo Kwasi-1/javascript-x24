@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Counter</title>
+</head>
+<body>
+  <script>
+    function countWords(words){
+      const count = {};
+
+      for (let i = 0; i < length; i++){
+        let word = words[i];
+        console.log(word)
+
+        // count = count[word];
+
+        if(!count[word]){
+          count[word] = 1;
+        }else{
+          count[word]++;
+        }
+      }
+      console.log(count);
+    }
+
+    countWords(['apple','grape', 'apple','apple'])
+  </script>
+</body>
+</html>
