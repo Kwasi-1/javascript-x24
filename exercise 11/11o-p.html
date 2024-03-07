@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrays and Loops</title>
+</head>
+<body>
+  <script>
+    // let array = [];
+
+    function loopArray(array){
+      index = -1;
+
+      for(i = 0; i < array.length; i++){
+        if(array[i] === 'search'){
+          index = i;
+          break;
+        }
+      }
+      console.log(index);
+    }
+
+    loopArray(['hello','world','search','good']);
+    loopArray(['not','found']);
+    loopArray(['hello','world','search','good','search']);
+  </script>
+</body>
+</html>
